@@ -76,8 +76,6 @@ class UserController {
   static uploadPic = async (req, res) => {
     let text = "";
     if (req.file) {
-      console.log(req.file)
-      return res.send(req.file)
       await T.recognize("/server/public/uploads/" + req.file.filename, "eng", {
         logger: (e) => console.log(e),
       }).then((res) => text=res.text);
