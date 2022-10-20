@@ -12,7 +12,7 @@ dotenv.config()
 const port = process.env.PORT || 4000
 const app = express()
 app.use(cookieParser())
-app.use(express.static( "public" ) );
+app.use(express.static( "public_html" ) );
 app.use(express.urlencoded({ extended:true}));
 app.use(cors({ origin:true, credentials:true }))
 app.use(bp.urlencoded({ extended: false }))
