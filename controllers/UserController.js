@@ -77,10 +77,10 @@ class UserController {
     let text = "";
     if (req.file) {
       console.log(req.file)
-      await T.recognize("/server/public/uploads/" + req.file.filename, "eng", {
+      await T.recognize("/server/public2/uploads/" + req.file.filename, "eng", {
         logger: (e) => console.log(e),
       }).then((res) => text=res.text);
-      fs.unlinkSync("/server/public_html/uploads/" + req.file.filename)
+      fs.unlinkSync("/server/public2/uploads/" + req.file.filename)
       return res.send({
         text:text
       }); 
