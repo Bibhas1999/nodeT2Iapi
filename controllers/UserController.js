@@ -76,11 +76,16 @@ class UserController {
   static uploadPic = async (req, res) => {
     let text = "";
     if (req.file) {
-      console.log(req.file)
-      await T.recognize("/server/public/uploads/" + req.file.filename, "eng", {
+      const dir = 'public'
+      const subDir = 'public/uploads'
+      if(!fs.existsSync(dir)){
+        fs.mkdirSync(dir)
+        fs.mkdirSync(subDir)
+      }
+      await T.recognize(`/server/${subDir}` + req.file.filename, "eng", {
         logger: (e) => console.log(e),
       }).then((res) => text=res.text);
-      fs.unlinkSync("/server/public/uploads/" + req.file.filename)
+      fs.unlinkSync(`/server/${subDir}` + req.file.filename)
       return res.send({
         text:text
       }); 
