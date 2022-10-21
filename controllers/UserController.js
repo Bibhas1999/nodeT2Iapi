@@ -77,22 +77,22 @@ class UserController {
     let text = "";
     if (req.file) {
       console.log(req.file)
-      await T.recognize("/server/uploads/" + req.file.filename, "eng", {
+      await T.recognize("/server/public/uploads/" + req.file.filename, "eng", {
         logger: (e) => console.log(e),
       }).then((res) => text=res.text);
-      fs.unlinkSync("/server/uploads/" + req.file.filename)
+      fs.unlinkSync("/server/public/uploads/" + req.file.filename)
       return res.send({
         text:text
       }); 
     }
   };
-  // static removePic = async (req, res) => {
-  //   if (req.file) {
-  //     return res.send({
-  //       name: req.file.filename,
-  //     });
-  //   }
-  // };
+  static removePic = async (req, res) => {
+    if (req.file) {
+      return res.send({
+        name: req.file.filename,
+      });
+    }
+  };
   static deleteUser = async (req, res) => {
     try {
       const id = req.params.id;
