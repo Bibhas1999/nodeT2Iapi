@@ -14,7 +14,7 @@ const app = express()
 app.use(cookieParser())
 app.use(express.static( "public" ) );
 app.use(express.urlencoded({ extended:true}));
-app.use(cors({ origin:true, credentials:true }))
+app.use(cors({ origin:"https://moonlit-centaur-26a034.netlify.app/", credentials:true }))
 app.use(bp.urlencoded({ extended: false }))
 app.use(bp.json())
 app.use('/',api)
