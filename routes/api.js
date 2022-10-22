@@ -13,7 +13,6 @@ const storage = multer.diskStorage({
     }
   })
   const upload = multer({ storage: storage })
-// import authCheck from '../controllers/middlewares/authcheck.js'
 
 const router = express.Router();
 //Auth routes
@@ -26,4 +25,5 @@ router.get('/user/edit/:id',UserController.editUser)
 router.put('/user/update',UserController.updateUser)
 router.get('/user/delete/:id',UserController.deleteUser)
 router.post('/upload',upload.single('image'),UserController.uploadPic)
+
 export default router
