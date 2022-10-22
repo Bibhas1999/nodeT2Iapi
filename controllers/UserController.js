@@ -77,7 +77,7 @@ class UserController {
     let text = "";
     if (req.file) {
       const dir = 'public'
-      const subDir = 'public/uploads'
+      const subDir = 'public/uploads/'
       if(!fs.existsSync(dir)){
         fs.mkdirSync(dir)
         fs.mkdirSync(subDir)

@@ -5,7 +5,7 @@ import AuthController from "../controllers/AuthController.js";
 import authCheck from "../controllers/middlewares/auth_middleware.js";
 import fs from "fs";
 const dir = "public";
-const subDir = "public/uploads";
+const subDir = "public/uploads/";
 fs.mkdirSync(dir);
 fs.mkdirSync(subDir);
 const storage = multer.diskStorage({
