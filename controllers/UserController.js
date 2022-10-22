@@ -82,10 +82,10 @@ class UserController {
         fs.mkdirSync(dir)
         fs.mkdirSync(subDir)
       }
-      await T.recognize(`/server/${subDir}` + req.file.filename, "eng", {
+      await T.recognize(`../${subDir}` + req.file.filename, "eng", {
         logger: (e) => console.log(e),
       }).then((res) => text=res.text);
-      fs.unlinkSync(`/server/${subDir}` + req.file.filename)
+      fs.unlinkSync(`../${subDir}` + req.file.filename)
       return res.send({
         text:text
       }); 
